@@ -1,7 +1,6 @@
-package stepDefinitions.DiscountandSurchageapplyJob;
+package stepDefinitions.TagValidationsJob;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -18,7 +17,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 
-public class DiscountandSurchageapplyJobTest {
+public class TagValidationsJob {
 	
 	WebDriver driver;
 	
@@ -111,7 +110,7 @@ public class DiscountandSurchageapplyJobTest {
 
 	@Given("^run jobs$")
 	public void run_Transfer_trips_jobs() throws Throwable {
-		String processExecuted = "SELECT max(jobs_oid) FROM i77.INFO_JOBS_INFODATA where jobs_name = 'Transfer Images Job' and jobs_fec_creation > sysdate - 1/24 order by JOBS_FEC_CREATION asc";
+		String processExecuted = "SELECT max(jobs_oid) FROM i77.INFO_JOBS_INFODATA where jobs_name = 'Tag Validations Job' and jobs_fec_creation > sysdate - 1/24 order by JOBS_FEC_CREATION asc";
 		Long cont = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
 		
 		driver.findElement(By.id("body:taskMaintenanceForm:updateButton")).click();
@@ -129,28 +128,22 @@ public class DiscountandSurchageapplyJobTest {
 		System.out.println("Process executed");
 		//checkTransaction();
 	}
-	@Then("^check Discount and Surchage apply job is successful$")
-	public void check_Discount_and_Surchage_apply_job_is_successful() throws Throwable {
-		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 50"; //transacción número proporcionado
+	@Then("^check Tag Validations Job is successful$")
+	public void check_Tag_Validations_Job_is_successful() throws Throwable {
+		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 300"; //transacción número proporcionado
 		Long cont = 1L;
 		Long cont2 = 0L;
-		Long waitTime = new Date().getTime();
 		do{
 			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
 			if(cont!=cont2) {
-				if(new Date().getTime()-waitTime>20000) {
-					System.out.println("Transaction KO");
-					System.out.println("Discount and Surchage apply job KO");
-					break;
-				}
-				else{
-					System.out.println("Waiting for transaction (" + (new Date().getTime()-waitTime)/1000 + " seconds left)");
-					Thread.sleep(1000);	
-				}
+				System.out.println("Transaction KO");
+				System.out.println("Tag Validations Job KO");
+
+				Thread.sleep(1000);
 			}
 			else {
 				System.out.println("Transaction OK");		
-				System.out.println("Discount and Surchage apply job OK");
+				System.out.println("Tag Validations Job OK");
 
 			}
 		}while(cont!=cont2);

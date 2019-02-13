@@ -1,9 +1,10 @@
-package stepDefinitions.TaskMaintenance;
+package stepDefinitions.TransferImagesJob;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,14 +17,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 
-public class TasksMaintenanceTest {
+public class TransferImagesJob {
 	
 	WebDriver driver;
+	
 	String url = "jdbc:oracle:thin:@10.101.138.58:1521:DEVI77";
 	String user = "I77";
 	String pass = "I77";
-	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
-
+	
 	@Before()
 	public void setup() throws Throwable {
 		boolean isDebug = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().indexOf("-agentlib:jdwp") > 0;
@@ -60,7 +61,7 @@ public class TasksMaintenanceTest {
 	
 	@Given("^we access task maintenance$")
 	public void we_access_task_maintenance() throws Throwable {
-	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id33"));
+		WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id33"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
 		Thread.sleep(2000);
@@ -74,52 +75,82 @@ public class TasksMaintenanceTest {
 		Thread.sleep(2000);
 		builder.perform();   
 		
-		Thread.sleep(3000);
 		System.out.println("Task Maintenance page accessed successfully");
 
 	    
 	}
 
-	@Given("^select a task from the list$")
-	public void select_a_task_from_the_list() throws Throwable {
+	@Given("^select jobs$")
+	public void select_jobs() throws Throwable {
 		Thread.sleep(5000);
-	    driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
+		
+		WebElement horizontal_scroll = driver.findElement(By.id("body:taskMaintenanceForm:taskTable:allActiveCheck")); ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", horizontal_scroll);
+		Thread.sleep(5000);
+	    WebElement checkboxtask = driver.findElement(By.id("body:taskMaintenanceForm:taskTable:allActiveCheck"));
 	    Thread.sleep(5000);
-	    System.out.println("Task appears correctly");
-	}
-
-	@Given("^enable or disable a task$")
-	public void enable_or_disable_a_task() throws Throwable {
-		
-		Thread.sleep(5000);
-		
-		WebElement horizontal_scroll = driver.findElement(By.xpath("//input[@id='body:taskMaintenanceForm:taskTable:0:updateTaskButton']")); ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", horizontal_scroll);
-		Thread.sleep(5000);
-		
-		WebElement checkboxtask = driver.findElement(By.id("body:taskMaintenanceForm:taskTable:1:activeOption"));
 		if((checkboxtask).isSelected()){
 			
-			System.out.println("The task was already selected, the new status will be inactive");
+			System.out.println("Tasks were already active. We'll reset them");
+			checkboxtask.click();
+			Thread.sleep(5000);
+			driver.findElement(By.id("body:taskMaintenanceForm:updateButton")).click();
+			Thread.sleep(5000);
+			driver.findElement(By.className("ui-state-focus")).click();
+	
+			Thread.sleep(5000);
 			checkboxtask.click();
 		}
 		else {
 			checkboxtask.click();
-			System.out.println("The task has been selected correctly");
+			
+			Thread.sleep(5000);
 		}
-		System.out.println(DatabaseConnector.checkResultInDatabase(query, url, user, pass));
-	  
+	    
 	}
-	
 
-	@Then("^Modify Task Status scenario is successful$")
-	public void modify_Task_Status_scenario_is_successful() throws Throwable {
-		driver.findElement(By.xpath("//input[@id='body:taskMaintenanceForm:taskTable:1:updateTaskButton']")).click();
+	@Given("^run jobs$")
+	public void run_Transfer_trips_jobs() throws Throwable {
+		String processExecuted = "SELECT max(jobs_oid) FROM i77.INFO_JOBS_INFODATA where jobs_name = 'Transfer Images Job' and jobs_fec_creation > sysdate - 1/24 order by JOBS_FEC_CREATION asc";
+		Long cont = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+		
+		driver.findElement(By.id("body:taskMaintenanceForm:updateButton")).click();
 		driver.findElement(By.className("ui-state-focus")).click();
 		Thread.sleep(5000);
-
-		System.out.println("The task's status has been modified correctly");
-	   
+		
+		Long cont2 = 0L;
+		do{
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+			if(cont==cont2) {
+				System.out.println("Process still not executed");
+				Thread.sleep(1000);
+			}
+		}while(cont==cont2);
+		System.out.println("Process executed");
+		//checkTransaction();
 	}
+	@Then("^check Transfer Images job is successful")
+	public void check_Transfer_Images_job_is_successful() throws Throwable {
+		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 51"; //transacción número proporcionado
+		Long cont = 1L;
+		Long cont2 = 0L;
+		do{
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+			if(cont!=cont2) {
+				System.out.println("Transaction KO");
+				System.out.println("Transfer Images Job KO");
+
+				Thread.sleep(1000);
+			}
+			else {
+				System.out.println("Transaction OK");		
+				System.out.println("Transfer Images Job OK");
+
+			}
+		}while(cont!=cont2);
+		
+		
+	}
+
 	
 	
 	@After
@@ -136,3 +167,6 @@ public class TasksMaintenanceTest {
 }
 
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

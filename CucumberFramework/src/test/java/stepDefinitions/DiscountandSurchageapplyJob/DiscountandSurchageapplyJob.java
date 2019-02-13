@@ -1,6 +1,7 @@
-package stepDefinitions.TransferImagesJob;
+package stepDefinitions.DiscountandSurchageapplyJob;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -17,7 +18,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 
-public class TransferImagesJobTest {
+public class DiscountandSurchageapplyJob {
 	
 	WebDriver driver;
 	
@@ -128,22 +129,28 @@ public class TransferImagesJobTest {
 		System.out.println("Process executed");
 		//checkTransaction();
 	}
-	@Then("^check Transfer Images job is successful")
-	public void check_Transfer_Images_job_is_successful() throws Throwable {
-		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 51"; //transacción número proporcionado
+	@Then("^check Discount and Surchage apply job is successful$")
+	public void check_Discount_and_Surchage_apply_job_is_successful() throws Throwable {
+		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 50"; //transacción número proporcionado
 		Long cont = 1L;
 		Long cont2 = 0L;
+		Long waitTime = new Date().getTime();
 		do{
 			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
 			if(cont!=cont2) {
-				System.out.println("Transaction KO");
-				System.out.println("Transfer Images Job KO");
-
-				Thread.sleep(1000);
+				if(new Date().getTime()-waitTime>20000) {
+					System.out.println("Transaction KO");
+					System.out.println("Discount and Surchage apply job KO");
+					break;
+				}
+				else{
+					System.out.println("Waiting for transaction (" + (new Date().getTime()-waitTime)/1000 + " seconds left)");
+					Thread.sleep(1000);	
+				}
 			}
 			else {
 				System.out.println("Transaction OK");		
-				System.out.println("Transfer Images Job OK");
+				System.out.println("Discount and Surchage apply job OK");
 
 			}
 		}while(cont!=cont2);
