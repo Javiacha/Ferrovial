@@ -22,7 +22,7 @@ public class ParametersMaintenanceTest {
 	@Before()
 	public void setup() throws Throwable {
 		//the following can be changed to: System.getProperty("user.dir") + "\\src\\test\\java\\resources\\other\\geckodriver.exe";
-		System.setProperty("webdriver.gecko.driver","C:\\Users\\franciscojavier.acha\\Desktop\\webdriverhoy\\WebdriverUniversity\\CucumberFramework\\src\\test\\java\\resources\\other\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\franciscojavier.acha\\git\\repository\\CucumberFramework\\src\\test\\java\\resources\\other\\geckodriver.exe");
 		this.driver = new FirefoxDriver();
 		this.driver.manage().window().maximize();
 		
