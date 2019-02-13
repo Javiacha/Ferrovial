@@ -4,7 +4,7 @@
 
 
 <head>
-	<meta charset='utf-8' /> 
+	<meta charset='UTF-8' /> 
 	<meta name='description' content='' />
 	<meta name='robots' content='noodp, noydir' />
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -15,9 +15,14 @@
 
 		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
 	
-	<title>ExtentReports</title>
+	<title>W2A Automation Reports</title>
 
 	<style type='text/css'>
+			
+            
+                
+            
+        
 	</style>
 </head>
 
@@ -33,12 +38,11 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
-			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
-		<span class='report-name'>ExtentReports</span>
+		<span class='report-name'>Automation Report for</span>
 		
 		<!-- report headline -->
 		<span class='report-headline'></span>
@@ -47,7 +51,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Feb 13, 2019 05:25:27 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Feb 13, 2019 05:46:58 PM</span>
 				</a>
 			</li>
 			<li>
@@ -73,8 +77,6 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
-						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -125,10 +127,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>3</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='44.444%'>4</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='22.222%'>2</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -140,10 +142,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>3</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='44.444%'>4</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='22.222%'>2</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -155,10 +157,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='47.619%'><span class='strong'>20</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='9.524%'>4</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='42.857%'>18</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -175,12 +177,12 @@
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>DMV Agreements</span>
-						<span class='test-time'>Feb 13, 2019 05:25:28 PM</span>
+						<span class='test-time'>Feb 13, 2019 05:46:58 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 1m 14s+93ms</span>
+	<span class='duration right label'>0h 1m 17s+956ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">Check DMV Agreements</span>
@@ -222,566 +224,6 @@
 </div>
 					</div>
 				</li>
-				
-				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='7'>
-					<div class='test-heading'>
-						<span class='test-name'>Journal Voucher Monitoring</span>
-						<span class='test-time'>Feb 13, 2019 05:26:45 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='8' status='fail'>
-	<span class='duration right label'>0h 0m 57s+989ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Journal Voucher Monitoring Lists Download</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='9' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Journal Voucher Monitoring</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='10' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And Select file type</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='11' class='node and fail' status='fail'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select a date</span>
-				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //span[text()="2018"]
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 12032, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 955aa54f-3abf-4f65-b27c-21e3848f191b
-*** Element info: {Using=xpath, value=//span[text()="2018"]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.JournalVoucherMonitoring.JournalVoucherMonitoringTest.select_a_date(JournalVoucherMonitoringTest.java:84)
-	at ✽.And select a date(JournalVoucherMonitoring.feature:5)
-</pre></div>
-			
-		</li>
-		<li test-id='12' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click Search button</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-		<li test-id='13' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click PDF File Download</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-		<li test-id='14' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click EXCEL File Download</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-		<li test-id='15' class='node then skip' status='skip'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then Journal Voucher Monitoring is successful</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf skip' status='skip' bdd='true' test-id='16'>
-					<div class='test-heading'>
-						<span class='test-name'>Task Database</span>
-						<span class='test-time'>Feb 13, 2019 05:27:46 PM</span>
-						<span class='test-status right skip'>skip</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='17' status='skip'>
-	<span class='duration right label'>0h 0m 0s+25ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Modify Task Status</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='18' class='node given skip' status='skip'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access task maintenance</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-		<li test-id='19' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select jobs</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-		<li test-id='20' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run jobs</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-		<li test-id='21' class='node then skip' status='skip'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then check Tag Validations Job is successful</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='22'>
-					<div class='test-heading'>
-						<span class='test-name'>Task Database</span>
-						<span class='test-time'>Feb 13, 2019 05:27:46 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='23' status='fail'>
-	<span class='duration right label'>0h 0m 43s+712ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Modify Task Status</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='24' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access task maintenance</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='25' class='node and fail' status='fail'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select jobs</span>
-				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #body\:taskMaintenanceForm\:taskTable\:allActiveCheck
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 16376, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 409173ba-ee46-4a76-95ba-dd110aae0e91
-*** Element info: {Using=id, value=body:taskMaintenanceForm:taskTable:allActiveCheck}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.TransferTripsJob.TransferTripsJobTest.select_jobs(TransferTripsJobTest.java:87)
-	at ✽.And select jobs(TransferTripsJob.feature:4)
-</pre></div>
-			
-		</li>
-		<li test-id='26' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run jobs</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-		<li test-id='27' class='node then skip' status='skip'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then check on DataBase Transfer trips job is successful</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='28'>
-					<div class='test-heading'>
-						<span class='test-name'>Parameters Maintenance</span>
-						<span class='test-time'>Feb 13, 2019 05:28:33 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='29' status='pass'>
-	<span class='duration right label'>0h 1m 9s+198ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Modify Parameters Status</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='30' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Parameters maintenance</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='31' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select a parameter from the list</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='32' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And enable or disable a parameter</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='33' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then Modify parameter Status scenario is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='34'>
-					<div class='test-heading'>
-						<span class='test-name'>Task Maintenance</span>
-						<span class='test-time'>Feb 13, 2019 05:29:45 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='35' status='fail'>
-	<span class='duration right label'>0h 0m 47s+663ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Modify Task Status</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='36' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access task maintenance</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='37' class='node and fail' status='fail'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select a task from the list</span>
-				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #body\:taskMaintenanceForm\:searchButton
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 19272, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 05e9ced1-b8b1-45d4-8410-944f2e3aa159
-*** Element info: {Using=id, value=body:taskMaintenanceForm:searchButton}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.TaskMaintenance.TasksMaintenance.select_a_task_from_the_list(TasksMaintenance.java:86)
-	at ✽.And select a task from the list(TasksMaintenance.feature:4)
-</pre></div>
-			
-		</li>
-		<li test-id='38' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And enable or disable a task</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-		<li test-id='39' class='node then skip' status='skip'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then Modify Task Status scenario is successful</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf skip' status='skip' bdd='true' test-id='40'>
-					<div class='test-heading'>
-						<span class='test-name'>Task Database</span>
-						<span class='test-time'>Feb 13, 2019 05:30:35 PM</span>
-						<span class='test-status right skip'>skip</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='41' status='skip'>
-	<span class='duration right label'>0h 0m 0s+5ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Modify Task Status</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='42' class='node given skip' status='skip'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access task maintenance</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-		<li test-id='43' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select jobs</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-		<li test-id='44' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run jobs</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-		<li test-id='45' class='node then skip' status='skip'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then check Tag Validations Job is successful</span>
-				<div class='pre'>undefined</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='46'>
-					<div class='test-heading'>
-						<span class='test-name'>Final Code Off Review</span>
-						<span class='test-time'>Feb 13, 2019 05:30:35 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='47' status='pass'>
-	<span class='duration right label'>0h 1m 13s+243ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Check Final Code Off Review different status</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='48' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Final Code Off Review</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='49' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click on Anomalous Transactions</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='50' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click Search button</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='51' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select a transaction</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='52' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click Review button</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='53' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And click Cancel button</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='54' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then Final Code Off Review is checked successfully</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='55'>
-					<div class='test-heading'>
-						<span class='test-name'>Task Database</span>
-						<span class='test-time'>Feb 13, 2019 05:31:51 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='56' status='fail'>
-	<span class='duration right label'>0h 0m 44s+870ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">Modify Task Status</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='57' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access task maintenance</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='58' class='node and fail' status='fail'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select jobs</span>
-				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #body\:taskMaintenanceForm\:taskTable\:allActiveCheck
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 12584, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 47bc97af-0db5-4ff4-8217-314ad98fd4b0
-*** Element info: {Using=id, value=body:taskMaintenanceForm:taskTable:allActiveCheck}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.TransferImagesJob.TransferImagesJob.select_jobs(TransferImagesJob.java:87)
-	at ✽.And select jobs(TransferImagesJob.feature:4)
-</pre></div>
-			
-		</li>
-		<li test-id='59' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run jobs</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-		<li test-id='60' class='node then skip' status='skip'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then check Transfer Images job is successful</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
 			</ul>
 		</div>
 	</div>
@@ -808,178 +250,6 @@ Session ID: 47bc97af-0db5-4ff4-8217-314ad98fd4b0
 </div>
 <!-- test view -->
 <!-- category view -->
-<div id='exception-view' class='view hide'>
-
-    <section id='controls'>
-        <div class='controls grey lighten-4'>
-            <!-- search -->
-            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
-                <a href="#" class='search-div'>
-                    <i class='material-icons'>search</i> Search
-                </a>
-
-                <div class='input-field left hide'>
-                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
-                </div>
-
-            </div>
-            <!-- search -->
-        </div>
-    </section>
-
-    <div class='subview-left left'>
-
-        <div class='view-summary'>
-            <h5>Exceptions</h3>
-                <ul id='exception-collection' class='exception-collection'>
-
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>4</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Feb 13, 2019 05:27:38 PM</td>
-                                                        <td class='linked' test-id='11'>Journal Voucher Monitoring.Journal Voucher Monitoring Lists Download.And select a date</td>
-                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //span[text()="2018"]
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 12032, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 955aa54f-3abf-4f65-b27c-21e3848f191b
-*** Element info: {Using=xpath, value=//span[text()="2018"]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.JournalVoucherMonitoring.JournalVoucherMonitoringTest.select_a_date(JournalVoucherMonitoringTest.java:84)
-	at ✽.And select a date(JournalVoucherMonitoring.feature:5)
-</pre></pre></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Feb 13, 2019 05:28:25 PM</td>
-                                                        <td class='linked' test-id='25'>Task Database.Modify Task Status.And select jobs</td>
-                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #body\:taskMaintenanceForm\:taskTable\:allActiveCheck
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 16376, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 409173ba-ee46-4a76-95ba-dd110aae0e91
-*** Element info: {Using=id, value=body:taskMaintenanceForm:taskTable:allActiveCheck}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.TransferTripsJob.TransferTripsJobTest.select_jobs(TransferTripsJobTest.java:87)
-	at ✽.And select jobs(TransferTripsJob.feature:4)
-</pre></pre></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Feb 13, 2019 05:30:27 PM</td>
-                                                        <td class='linked' test-id='37'>Task Maintenance.Modify Task Status.And select a task from the list</td>
-                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #body\:taskMaintenanceForm\:searchButton
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 19272, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 05e9ced1-b8b1-45d4-8410-944f2e3aa159
-*** Element info: {Using=id, value=body:taskMaintenanceForm:searchButton}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.TaskMaintenance.TasksMaintenance.select_a_task_from_the_list(TasksMaintenance.java:86)
-	at ✽.And select a task from the list(TasksMaintenance.feature:4)
-</pre></pre></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Feb 13, 2019 05:32:31 PM</td>
-                                                        <td class='linked' test-id='58'>Task Database.Modify Task Status.And select jobs</td>
-                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: #body\:taskMaintenanceForm\:taskTable\:allActiveCheck
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 12584, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 47bc97af-0db5-4ff4-8217-314ad98fd4b0
-*** Element info: {Using=id, value=body:taskMaintenanceForm:taskTable:allActiveCheck}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.TransferImagesJob.TransferImagesJob.select_jobs(TransferImagesJob.java:87)
-	at ✽.And select jobs(TransferImagesJob.feature:4)
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-        </div>
-    </div>
-
-    <div class='subview-right left'>
-        <div class='view-summary'>
-            <h5 class='exception-name'></h5>
-        </div>
-    </div>
-</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -989,37 +259,37 @@ Session ID: 47bc97af-0db5-4ff4-8217-314ad98fd4b0
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>9</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>9</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>42</div>
+					<div class='panel-lead'>4</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Feb 13, 2019 05:25:27 PM</div>
+					<div class='panel-lead'>Feb 13, 2019 05:46:58 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Feb 13, 2019 05:32:39 PM</div>
+			 		<div class='panel-lead'>Feb 13, 2019 05:48:19 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>431,543ms</div>
+					<div class='panel-lead'>81,114ms</div>
 				</div>
 			</div>
 		</div>
@@ -1032,31 +302,31 @@ Session ID: 47bc97af-0db5-4ff4-8217-314ad98fd4b0
 
 		<script>
 			var statusGroup = {
-				passParent: 3,
-				failParent: 4,
+				passParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
-				skipParent: 2,
-				exceptionsParent: 6,
+				skipParent: 0,
+				exceptionsParent: 0,
 				
-				passChild: 3,
-				failChild: 4,
+				passChild: 1,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
-				skipChild: 2,
+				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 6,
+				exceptionsChild: 0,
 				
-				passGrandChild: 20,
-				failGrandChild: 4,
+				passGrandChild: 4,
+				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 18,
+				skipGrandChild: 0,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 22,
+				exceptionsGrandChild: 0,
 			};
 		</script>
 		
@@ -1064,6 +334,13 @@ Session ID: 47bc97af-0db5-4ff4-8217-314ad98fd4b0
 		
 		
  		<script type='text/javascript'>
+ 			
+            
+                $(document).ready(function() {
+                    
+                });
+            
+        
  		</script>
 	</body>
 	
