@@ -15,8 +15,8 @@ import pageObjects.BasePage;
 
 @CucumberOptions(features = { "src/test/java/resources/features/FinalCodeOffReviewFeature" }, glue = {
 		"stepDefinitions/FinalCodeOffReview" }, monochrome = true, tags = {}, 
-				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber.json",
-				"com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
+				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber2.json",
+				"com.cucumber.listener.ExtentCucumberFormatter:output/report2.html" })
 
 public class FinalCodeOffReviewRunnerTest extends AbstractTestNGCucumberTests {
 	@AfterClass

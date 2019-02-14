@@ -15,8 +15,8 @@ import pageObjects.BasePage;
 
 @CucumberOptions(features = { "src/test/java/resources/features/DMVAgreementsFeature" }, glue = {
 		"stepDefinitions/DMVAgreements" }, monochrome = true, tags = {}, 
-				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber.json",
-				"com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
+				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber1.json",
+				"com.cucumber.listener.ExtentCucumberFormatter:output/report1.html" })
 
 public class DMVAgreementsRunnerTest extends AbstractTestNGCucumberTests {
 	@AfterClass

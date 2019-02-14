@@ -15,8 +15,8 @@ import pageObjects.BasePage;
 
 @CucumberOptions(features = { "src/test/java/resources/features/ParametersMaintenanceFeature" }, glue = {
 		"stepDefinitions/ParametersMaintenance" }, monochrome = true, tags = {}, 
-				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber.json",
-				"com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
+				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber3.json",
+				"com.cucumber.listener.ExtentCucumberFormatter:output/report3.html" })
 
 public class ParametersMaintenanceRunnerTest extends AbstractTestNGCucumberTests {
 	@AfterClass
