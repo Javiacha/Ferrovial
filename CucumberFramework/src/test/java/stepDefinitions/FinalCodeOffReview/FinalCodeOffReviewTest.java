@@ -27,7 +27,8 @@ public class FinalCodeOffReviewTest {
 		this.driver.manage().window().maximize();
 		
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		driver.get("http://10.101.138.58:7001/war_texas-LBJ-1/login.jsf");
+		driver.get("http://10.34.16.73:7201/war_texas-LBJ-1/login.jsf");
+		
 		Thread.sleep(3000);
 		driver.close();
 		for(String winHandle : driver.getWindowHandles()){
@@ -36,8 +37,8 @@ public class FinalCodeOffReviewTest {
 		    
 		}
 		    Thread.sleep(6000);
-			driver.findElement(By.id("j_username")).sendKeys("ADMIN");
-			driver.findElement(By.id("j_password")).sendKeys("devI772019*");
+			driver.findElement(By.id("j_username")).sendKeys("LMORENO");
+			driver.findElement(By.id("j_password")).sendKeys("BOSbos777!");
 			Thread.sleep(5000);
 			driver.findElement(By.cssSelector("input.btn")).click();
 			Thread.sleep(5000);	
@@ -47,7 +48,7 @@ public class FinalCodeOffReviewTest {
 	
 	@Given("^we access Final Code Off Review$")
 	public void we_access_Final_Code_Off_Review() throws Throwable  {
-	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id28"));
+	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id25"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
 		Thread.sleep(2000);
@@ -69,10 +70,20 @@ public class FinalCodeOffReviewTest {
 
 	@Given("^click on Anomalous Transactions$")
 	public void click_on_Anomalous_Transactions() throws Throwable   {
+		driver.findElement(By.xpath("//table[@id='header:formHeaderApplication:changeConcesionaryComboBox']//img[@vspace='1']")).click();
+		driver.findElement(By.xpath("//td[@ec_value='9']")).click();
+
 		Thread.sleep(5000);
-	    driver.findElement(By.id("body:anomalousTransactionForm:transactionCheck")).click();
+	  //  driver.findElement(By.id("body:anomalousTransactionForm:transactionCheck")).click();
 	    Thread.sleep(5000);
-	    System.out.println("Anomalous transactions button has been checked correctly");
+	 //   System.out.println("Anomalous transactions button has been checked correctly");
+	    driver.findElement(By.xpath("(//img[starts-with(@src,\"images/table-icon.gi\")])[2]")).click();
+	    Thread.sleep(5000);
+		driver.findElement(By.className("calendarToday")).click();
+		//driver.findElement(By.xpath("//div[@class='pane']//div//tbody//td[2]//td[2]")).click();
+		Thread.sleep(30000);
+
+
 	}
 
 	@Given("^click Search button$")
@@ -88,9 +99,12 @@ public class FinalCodeOffReviewTest {
 
 	@Given("^select a transaction$")
 	public void select_a_transaction() throws Throwable {
-		driver.findElement(By.xpath("//div[contains(text(),'2045')]")).click();;
+		Thread.sleep(5000);
+		
+		driver.findElement(By.id("body:anomalousTransactionForm:anomalousTransactionTable:9:trAnomlousTransactionfieldRecords")).click();
+
 		System.out.println("Transaction has been selected correctly");
-	   
+	   Thread.sleep(20000);
 	}
 	
 	@Given("^click Review button$")

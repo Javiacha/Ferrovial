@@ -1,6 +1,8 @@
 package stepDefinitions.TransferTripsJob;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -130,7 +132,7 @@ public class TransferTripsJobTest {
 	}
 	@Then("^check on DataBase Transfer trips job is successful$")
 	public void check_on_DataBase_Transfer_trips_job_is_successful() throws Throwable {
-		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 52"; //transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 52";//transacción número proporcionado
 		Long cont = 1L;
 		Long cont2 = 0L;
 		do{
@@ -148,6 +150,10 @@ public class TransferTripsJobTest {
 			}
 		}while(cont!=cont2);
 		
+		List<String> ids = new ArrayList<String>();
+		ids.add("18");
+		List<String> showTransaction = DatabaseConnector.getTransactionValuesInDatabase(url, user, pass, ids);
+		System.out.println(String.join(",", showTransaction));
 		
 	}
 

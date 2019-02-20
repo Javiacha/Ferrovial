@@ -1,5 +1,9 @@
 package utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import gherkin.lexer.Da;
 
 public class Main {
 
@@ -9,8 +13,12 @@ public class Main {
 		String pass = "I77";
 		String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
 		
-		myTestCase(query, url, user, pass);
-		myTestCase2(query, url, user, pass);
+//		myTestCase(query, url, user, pass);
+//		myTestCase2(query, url, user, pass);
+		List<String> ids = new ArrayList<String>();
+		ids.add("18");
+		List<String> showTransaction = DatabaseConnector.getTransactionValuesInDatabase(url, user, pass, ids);
+		System.out.println(String.join(",", showTransaction));
 	}
 	
 	private static void myTestCase(String query, String url, String user, String pass){
