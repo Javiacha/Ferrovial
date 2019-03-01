@@ -1,21 +1,24 @@
-package stepDefinitions.FinalCodeOffReview;
+package stepDefinitions.SendingDuplicatedTransactionsCodeoff;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.interactions.Actions;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.And;
+import utils.DatabaseConnector;
 
-public class FinalCodeOffReviewTest {
+public class bbdd_01_SENDINGDUPLICATEDTRANSACTIONTOCodeOff {
 	
 	WebDriver driver;
 
@@ -44,11 +47,11 @@ public class FinalCodeOffReviewTest {
 			Thread.sleep(5000);	
 			System.out.println("BOS Main page accessed successfully");
 	}
-
 	
 	@Given("^we access Final Code Off Review$")
-	public void we_access_Final_Code_Off_Review() throws Throwable  {
-	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id25"));
+	public void we_access_Final_Code_Off_Review() throws Throwable
+	{
+		WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id25"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
 		Thread.sleep(2000);
@@ -64,69 +67,57 @@ public class FinalCodeOffReviewTest {
 		
 		Thread.sleep(3000);
 		System.out.println("Final Code Off Review page accessed successfully");
-
-	    
+		
 	}
-
-	@Given("^click on Anomalous Transactions$")
-	public void click_on_Anomalous_Transactions() throws Throwable   {
+	@And("^select database schema$")
+	public void select_database_schema() throws Throwable
+	{
 		driver.findElement(By.xpath("//table[@id='header:formHeaderApplication:changeConcesionaryComboBox']//img[@vspace='1']")).click();
 		driver.findElement(By.xpath("//td[@ec_value='9']")).click();
 
 		Thread.sleep(5000);
-	  //  driver.findElement(By.id("body:anomalousTransactionForm:transactionCheck")).click();
-	    Thread.sleep(5000);
-	 //   System.out.println("Anomalous transactions button has been checked correctly");
-	    driver.findElement(By.xpath("(//img[starts-with(@src,\"images/table-icon.gi\")])[2]")).click();
+		
+	}
+	
+	@And("^select date$")
+	public void select_date() throws Throwable
+	{
+		driver.findElement(By.xpath("(//img[starts-with(@src,\"images/table-icon.gi\")])[2]")).click();
 	    Thread.sleep(5000);
 		driver.findElement(By.className("calendarToday")).click();
-		//driver.findElement(By.xpath("//div[@class='pane']//div//tbody//td[2]//td[2]")).click();
-		Thread.sleep(30000);
-
-
-	}
-
-	@Given("^click Search button$")
-	public void click_Search_button() throws Throwable {
 		
+	}
+	@And("^click Search button$")
+	public void click_Search_button() throws Throwable
+	{
+
 		Thread.sleep(5000);
 		driver.findElement(By.id("body:anomalousTransactionForm:searchButton")).click();
 		System.out.println("Transaction list is displayed correctly");
 		Thread.sleep(5000);
-		}
+	}
 	
-	
-
-	@Given("^select a transaction$")
-	public void select_a_transaction() throws Throwable {
+	@And("^select a transaction$")
+	public void select_a_transaction() throws Throwable
+	{
 		Thread.sleep(5000);
 		
 		driver.findElement(By.id("body:anomalousTransactionForm:anomalousTransactionTable:9:trAnomlousTransactionfieldRecords")).click();
 
 		System.out.println("Transaction has been selected correctly");
-	   Thread.sleep(2000);
+		Thread.sleep(2000);
 	}
-	
-	@Given("^click Review button$")
-	public void click_Review_button() throws Throwable {
-		Thread.sleep(5000);
-		driver.findElement(By.id("body:anomalousTransactionForm:reviewButton")).click();
-	    
+	@And ("^click Discard button$")
+	public void click_Discard_button() throws Throwable
+	{
+		driver.findElement(By.id("body:anomalousTransactionForm:discardButtonReview")).click();
 	}
-	
-	@Given("^click Cancel button$")
-	public void click_Cancel_button() throws Throwable {
-		Thread.sleep(5000);
-	    driver.findElement(By.id("body:anomalousTransactionForm:cancelButton")).click();
+	@Then ("^transaction has been correctly discarded$")
+	public void transaction_has_been_correctly_discarded() throws Throwable
+	{
+		boolean checkText = false;
+		driver.findElement(By.xpath("//span[contains(text(),'Accept')]")).click();
 	}
-	
-	@Then("^Final Code Off Review is checked successfully$")
-	public void final_Code_Off_Review_is_checked_successfully() throws Throwable {
-	   driver.findElement(By.xpath("//span[contains(text(),'Accept')]")).click();
-	}
-
-	
-	
 	
 	@After
 	public void tearDown() {
@@ -140,13 +131,4 @@ public class FinalCodeOffReviewTest {
 			System.out.println("Methods failed: tearDown, Exception: " + e.getMessage());
 		}
 }
-
-
 }
-
- 
-
-
-
-
-

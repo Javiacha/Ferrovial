@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,10 +21,6 @@ import utils.DatabaseConnector;
 public class TransferTripsJobTest {
 	
 	WebDriver driver;
-	
-	String url = "jdbc:oracle:thin:@10.101.138.58:1521:DEVI77";
-	String user = "I77";
-	String pass = "I77";
 	
 	@Before()
 	public void setup() throws Throwable {
@@ -112,8 +107,8 @@ public class TransferTripsJobTest {
 
 	@Given("^run jobs$")
 	public void run_Transfer_trips_jobs() throws Throwable {
-		String processExecuted = "SELECT max(jobs_oid) FROM i77.INFO_JOBS_INFODATA where jobs_name = 'Transfer Trips Job' and jobs_fec_creation > sysdate - 1/24 order by JOBS_FEC_CREATION asc";
-		Long cont = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+		String processExecuted = "SELECT max(jobs_oid) FROM INFO_JOBS_INFODATA where jobs_name = 'Transfer Trips Job' and jobs_fec_creation > sysdate - 1/24 order by JOBS_FEC_CREATION asc";
+		Long cont = DatabaseConnector.checkResultInDatabase(processExecuted);
 		
 		driver.findElement(By.id("body:taskMaintenanceForm:updateButton")).click();
 		driver.findElement(By.className("ui-state-focus")).click();
@@ -121,7 +116,7 @@ public class TransferTripsJobTest {
 		
 		Long cont2 = 0L;
 		do{
-			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont==cont2) {
 				System.out.println("Process still not executed");
 				Thread.sleep(1000);
@@ -132,11 +127,11 @@ public class TransferTripsJobTest {
 	}
 	@Then("^check on DataBase Transfer trips job is successful$")
 	public void check_on_DataBase_Transfer_trips_job_is_successful() throws Throwable {
-		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 52";//transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 52";//transacción número proporcionado
 		Long cont = 1L;
 		Long cont2 = 0L;
 		do{
-			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
 				System.out.println("Transaction KO");
 				System.out.println("Transfer Trips KO");
@@ -152,7 +147,7 @@ public class TransferTripsJobTest {
 		
 		List<String> ids = new ArrayList<String>();
 		ids.add("18");
-		List<String> showTransaction = DatabaseConnector.getTransactionValuesInDatabase(url, user, pass, ids);
+		List<String> showTransaction = DatabaseConnector.getTransactionValuesInDatabase(ids);
 		System.out.println(String.join(",", showTransaction));
 		
 	}

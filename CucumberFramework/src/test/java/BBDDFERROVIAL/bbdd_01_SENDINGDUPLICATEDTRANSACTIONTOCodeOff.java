@@ -1,5 +1,0 @@
-package BBDDFERROVIAL;
-
-public class bbdd_01_SENDINGDUPLICATEDTRANSACTIONTOCodeOff {
-
-}

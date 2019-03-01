@@ -1,4 +1,4 @@
-package stepDefinitions.TaskMaintenance;
+package stepDefinitions.bbdd_02_TOLLRATEANDEXEMPTS;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -12,11 +12,12 @@ import org.openqa.selenium.interactions.Actions;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 
-public class TasksMaintenance {
+public class bbdd_02_TOLLRATEANDEXEMPTS {
 	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
@@ -55,9 +56,9 @@ public class TasksMaintenance {
 	}
 
 	
-	@Given("^we access task maintenance$")
-	public void we_access_task_maintenance() throws Throwable {
-	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id33"));
+	@Given("^we access Task Maintenance to run VALIDATION MANAGER FINAL VALIDATION$")
+	public void we_access_Task_Maintenance_to_run_VALIDATION_MANAGER_FINAL_VALIDATION() throws Throwable {
+	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id30"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
 		Thread.sleep(2000);
@@ -73,48 +74,47 @@ public class TasksMaintenance {
 		
 		Thread.sleep(3000);
 		System.out.println("Task Maintenance page accessed successfully");
+		
+		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("VALIDATION MANAGER INITIAL VALIDATIONS");
+		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
+		
+		
 
 	    
 	}
+	
+	@And("^select database schema$")
+	public void select_database_schema() throws Throwable{
+		driver.findElement(By.xpath("//table[@id='header:formHeaderApplication:changeConcesionaryComboBox']//img[@vspace='1']")).click();
+		driver.findElement(By.xpath("//td[@ec_value='9']")).click();
 
-	@Given("^select a task from the list$")
-	public void select_a_task_from_the_list() throws Throwable {
-		Thread.sleep(5000);
-	    driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
-	    Thread.sleep(5000);
-	    System.out.println("Task appears correctly");
-	}
-
-	@Given("^enable or disable a task$")
-	public void enable_or_disable_a_task() throws Throwable {
-		
-		Thread.sleep(5000);
-		
-		WebElement horizontal_scroll = driver.findElement(By.xpath("//input[@id='body:taskMaintenanceForm:taskTable:0:updateTaskButton']")); ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", horizontal_scroll);
-		Thread.sleep(5000);
-		
-		WebElement checkboxtask = driver.findElement(By.id("body:taskMaintenanceForm:taskTable:1:activeOption"));
-		if((checkboxtask).isSelected()){
-			
-			System.out.println("The task was already selected, the new status will be inactive");
-			checkboxtask.click();
-		}
-		else {
-			checkboxtask.click();
-			System.out.println("The task has been selected correctly");
-		}
-		System.out.println(DatabaseConnector.checkResultInDatabase(query));
-	  
 	}
 	
+	@And ("^run VALIDATION MANAGER INITIAL VALIDATION$")
+	public void run_VALIDATION_MANAGER_INITIAL_VALIDATION() throws Throwable{
+		
+		
+		
+	}
+	
+	@And ("^check '300' status$")
+	public void check_300_status() throws Throwable{
+		//System.out.println(DatabaseConnector.checkResultInDatabase(query));
+		
+		
+	}
 
-	@Then("^Modify Task Status scenario is successful$")
-	public void modify_Task_Status_scenario_is_successful() throws Throwable {
-		driver.findElement(By.xpath("//input[@id='body:taskMaintenanceForm:taskTable:1:updateTaskButton']")).click();
-		driver.findElement(By.className("ui-state-focus")).click();
-		Thread.sleep(5000);
+	
 
-		System.out.println("The task's status has been modified correctly");
+	
+		
+	  
+	
+	
+
+	@Then ("^test case is successful$")
+	public void test_case_is_successful() throws Throwable {
+		
 	   
 	}
 	

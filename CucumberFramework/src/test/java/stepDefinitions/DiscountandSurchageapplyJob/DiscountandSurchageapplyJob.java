@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,10 +20,6 @@ import utils.DatabaseConnector;
 public class DiscountandSurchageapplyJob {
 	
 	WebDriver driver;
-	
-	String url = "jdbc:oracle:thin:@10.101.138.58:1521:DEVI77";
-	String user = "I77";
-	String pass = "I77";
 	
 	@Before()
 	public void setup() throws Throwable {
@@ -111,8 +106,8 @@ public class DiscountandSurchageapplyJob {
 
 	@Given("^run jobs$")
 	public void run_Transfer_trips_jobs() throws Throwable {
-		String processExecuted = "SELECT max(jobs_oid) FROM i77.INFO_JOBS_INFODATA where jobs_name = 'Transfer Images Job' and jobs_fec_creation > sysdate - 1/24 order by JOBS_FEC_CREATION asc";
-		Long cont = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+		String processExecuted = "SELECT max(jobs_oid) FROM INFO_JOBS_INFODATA where jobs_name = 'Transfer Images Job' and jobs_fec_creation > sysdate - 1/24 order by JOBS_FEC_CREATION asc";
+		Long cont = DatabaseConnector.checkResultInDatabase(processExecuted);
 		
 		driver.findElement(By.id("body:taskMaintenanceForm:updateButton")).click();
 		driver.findElement(By.className("ui-state-focus")).click();
@@ -120,7 +115,7 @@ public class DiscountandSurchageapplyJob {
 		
 		Long cont2 = 0L;
 		do{
-			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont==cont2) {
 				System.out.println("Process still not executed");
 				Thread.sleep(1000);
@@ -131,12 +126,12 @@ public class DiscountandSurchageapplyJob {
 	}
 	@Then("^check Discount and Surchage apply job is successful$")
 	public void check_Discount_and_Surchage_apply_job_is_successful() throws Throwable {
-		String processExecuted = "SELECT count(1) FROM i77.med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 50"; //transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 50"; //transacción número proporcionado
 		Long cont = 1L;
 		Long cont2 = 0L;
 		Long waitTime = new Date().getTime();
 		do{
-			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted, url, user, pass);
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
 				if(new Date().getTime()-waitTime>20000) {
 					System.out.println("Transaction KO");
