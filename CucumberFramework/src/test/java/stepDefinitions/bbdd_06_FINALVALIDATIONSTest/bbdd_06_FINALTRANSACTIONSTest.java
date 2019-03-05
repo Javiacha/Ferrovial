@@ -1,4 +1,4 @@
-package stepDefinitions.bbdd_01_INITIALVALIDATIONS;
+package stepDefinitions.bbdd_06_FINALVALIDATIONSTest;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
 
-public class bbdd_01_INITIALVALIDATIONSTest {
+public class bbdd_06_FINALTRANSACTIONSTest {
 	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
@@ -63,13 +63,8 @@ public class bbdd_01_INITIALVALIDATIONSTest {
 	}
 
 	
-	@Given("^we access Task Maintenance to run VALIDATION MANAGER  INITIAL VALIDATION$")
-	public void we_access_Task_Maintenance_to_run_VALIDATION_MANAGER_INITIAL_VALIDATION() throws Throwable {
-		Thread.sleep(10000);
-		WebElement html = driver.findElement(By.tagName("html"));
-		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
-		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
-		Thread.sleep(5000);
+	@Given("^we access Task Maintenance to run FINAL VALIDATIONS$")
+	public void we_access_Task_Maintenance_to_run_FINAL_VALIDATIONS() throws Throwable {
 	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id33"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
@@ -109,10 +104,10 @@ public class bbdd_01_INITIALVALIDATIONSTest {
 
 	}
 	
-	@And ("^run VALIDATION MANAGER INITIAL VALIDATION$")
-	public void run_VALIDATION_MANAGER_INITIAL_VALIDATION() throws Throwable{
+	@Given("^run FINAL VALIDATIONS$")
+	public void run_FINAL_VALIDATIONS() throws Throwable{
 		
-		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("INITIAL VALIDATIONS");
+		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("FINAL VALIDATIONS");
 		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
 		
 Thread.sleep(5000);
@@ -141,8 +136,7 @@ Thread.sleep(5000);
 	}
 	@And("^check \"([^\"]*)\" status$")
 	public void check_status(String arg1) throws Throwable{
-		
-		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 300";//transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 150";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
@@ -150,18 +144,18 @@ Thread.sleep(5000);
 			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
 				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("INITIAL VALIDATIONS KO");
+				System.out.println("FINAL VALIDATIONS KO");
 
 				Thread.sleep(1000); 
 				
 				if((new Date().getTime())-currentDate>30000){
-					System.out.println("INITIAL VALIDATIONS - TIMEOUT");
+					System.out.println("FINAL VALIDATIONS - TIMEOUT");
 					break;
 				}
 			}
 			else {
 				System.out.println("Transaction has been proccessed with result: OK"); 
-				System.out.println("INITIAL VALIDATIONS OK");
+				System.out.println("FINAL VALIDATIONS OK");
 
 			}
 		}while(cont!=cont2);
@@ -202,3 +196,4 @@ Thread.sleep(5000);
 }
 
 }
+

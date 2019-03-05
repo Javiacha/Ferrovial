@@ -24,8 +24,6 @@ import org.openqa.selenium.support.ui.*;
 
 public class bbdd_02_TAGVALIDATIONSTest {
 	
-	private boolean isRunnerExecutionResultOK = false;
-	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
 
@@ -34,7 +32,7 @@ public class bbdd_02_TAGVALIDATIONSTest {
 		boolean isDebug = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().indexOf("-agentlib:jdwp") > 0;
 		try {
 		    if (isDebug)
-		        Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe");
+		        Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe"); 
 		} catch (IOException e) {
 		    e.printStackTrace(); 
 		}
@@ -47,17 +45,17 @@ public class bbdd_02_TAGVALIDATIONSTest {
 		this.driver.manage().window().maximize();
 		
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		driver.get("http://10.101.138.58:7001/war_texas-LBJ-1/login.jsf"); 
+		driver.get("http://10.101.138.58:7001/war_texas-LBJ-1/login.jsf");
 		Thread.sleep(3000);
 		driver.close();
-		for(String winHandle : driver.getWindowHandles()){
+		for(String winHandle : driver.getWindowHandles()){ 
 		    driver.switchTo().window(winHandle);
 		    driver.manage().window().maximize();
 		    
 		}
 		    Thread.sleep(6000);
 			driver.findElement(By.id("j_username")).sendKeys("ADMIN");
-			driver.findElement(By.id("j_password")).sendKeys("devI772019*");
+			driver.findElement(By.id("j_password")).sendKeys("devI772020*");
 			Thread.sleep(5000);
 			driver.findElement(By.cssSelector("input.btn")).click();
 			Thread.sleep(5000);	
@@ -67,7 +65,7 @@ public class bbdd_02_TAGVALIDATIONSTest {
 	
 	@Given("^we access Task Maintenance to run VALIDATION MANAGER TAG VALIDATION$")
 	public void we_access_Task_Maintenance_to_run_VALIDATION_MANAGER_TAG_VALIDATION() throws Throwable {
-	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id32"));
+	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id33"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
 		Thread.sleep(2000);
@@ -92,7 +90,7 @@ public class bbdd_02_TAGVALIDATIONSTest {
 	    
 	}
 	
-	@Given("^select database schema$")
+	@And("^select database schema$")
 	public void select_database_schema() throws Throwable{
 
 		driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).click();
@@ -102,7 +100,7 @@ public class bbdd_02_TAGVALIDATIONSTest {
 
 			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ENTER);
 
-		Thread.sleep(20000);
+		Thread.sleep(20000); 
 
 	}
 	
@@ -118,7 +116,7 @@ Thread.sleep(5000);
 		Thread.sleep(5000);
 		
 		WebElement checkboxtask = driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:activeOption"));
-		if((checkboxtask).isSelected()){ 
+		if((checkboxtask).isSelected()){
 			
 			System.out.println("The task was already selected, we will stop it and run again");
 			checkboxtask.click();
@@ -130,63 +128,56 @@ Thread.sleep(5000);
 			checkboxtask.click();
 			System.out.println("The task has been selected correctly");
 			driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
-			driver.findElement(By.className("ui-state-focus")).click(); 
+			driver.findElement(By.className("ui-state-focus")).click();
 
 		}
 		Thread.sleep(6000);
 		//
 	}
-	@Given("^check \"([^\"]*)\" status$")
+	@And("^check \"([^\"]*)\" status$")
 	public void check_status(String arg1) throws Throwable{
-		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid = 18 and medtr_trnst_fk = 301";//transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 301";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
 		do{
-			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted); 
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
 				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("TAGS VALIDATIONS KO"); 
+				System.out.println("TAG VALIDATIONS KO");
 
-				Thread.sleep(1000);
+				Thread.sleep(1000); 
 				
-				if((new Date().getTime())-currentDate>30000){ 
-					System.out.println("TAGS VALIDATIONS - TIMEOUT");
+				if((new Date().getTime())-currentDate>30000){
+					System.out.println("TAG VALIDATIONS - TIMEOUT");
 					break;
 				}
 			}
 			else {
-				System.out.println("Transaction has been proccessed with result: OK");
-				System.out.println("TAGS OK");
-				isRunnerExecutionResultOK = true;
+				System.out.println("Transaction has been proccessed with result: OK"); 
+				System.out.println("TAG VALIDATIONS OK");
 
 			}
 		}while(cont!=cont2);
 		
 		List<String> ids = new ArrayList<String>();
 		ids.add("18");
-		List<String> showTransaction = DatabaseConnector.getTransactionValuesInDatabase(ids);
-		System.out.println(String.join(",", showTransaction)); 
+		ids.add("150");
+		
+		List<String> showTransactions = DatabaseConnector.getTransactionValuesInDatabase(ids);
+		for (String showTransaction : showTransactions) {
+			System.out.println(String.join(",", showTransaction));			
+		}
 	}
 
-	
-
-	
-		
-	  
-	
-	
-
-	@Then("^test case is successful$")
+	@Then ("^test case is successful$")
 	public void test_case_is_successful() throws Throwable {
-		
 		WebElement checkboxtask = driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:activeOption"));
 		checkboxtask.click();
 		driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
 		driver.findElement(By.className("ui-state-focus")).click();
 		Thread.sleep(5000);
-		
-		System.out.println("Test case done");
+		System.out.println("Test case done");  
 	   
 	}
 	
