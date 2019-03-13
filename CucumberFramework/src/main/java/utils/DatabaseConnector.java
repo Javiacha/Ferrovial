@@ -10,6 +10,8 @@ import java.util.List;
 
 public class DatabaseConnector {
 
+	
+	
 //	private final static String DATABASE_SCHEMA = "DEVI77";
 //	private final static String DATABASE_IP = "10.101.138.58";
 //	private final static String DATABASE_PORT = "1521";
