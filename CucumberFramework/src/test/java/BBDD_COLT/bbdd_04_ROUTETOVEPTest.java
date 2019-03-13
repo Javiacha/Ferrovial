@@ -1,4 +1,4 @@
-package BBDD_PREPROD;
+package BBDD_COLT;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
 
-public class bbdd_05_VEPROUTETRANSACTIONSTest {
+public class bbdd_04_ROUTETOVEPTest {
 	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
@@ -63,8 +63,8 @@ public class bbdd_05_VEPROUTETRANSACTIONSTest {
 	}
 
 	
-	@Given("^we access Task Maintenance to run INSIDE VEP$")
-	public void we_access_Task_Maintenance_to_run_INSIDE_VEP() throws Throwable {
+	@Given("^we access Task Maintenance to run ROUTING TO VEP$")
+	public void we_access_Task_Maintenance_to_run_ROUTING_TO_VEP() throws Throwable {
 	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id30"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
@@ -104,10 +104,10 @@ public class bbdd_05_VEPROUTETRANSACTIONSTest {
 
 	}
 	
-	@Given("^run INSIDE VEP$")
-	public void run_INSIDE_VEP() throws Throwable{
+	@And ("^run ROUTING TO VEP$")
+	public void run_ROUTING_TO_VEP() throws Throwable{
 		
-		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("INSIDE VEP");
+		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("ROUTING TO VEP");
 		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
 		
 Thread.sleep(5000);
@@ -136,7 +136,7 @@ Thread.sleep(5000);
 	}
 	@And("^check \"([^\"]*)\" status$")
 	public void check_status(String arg1) throws Throwable{
-		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 20";//transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 15";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
@@ -144,18 +144,18 @@ Thread.sleep(5000);
 			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
 				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("INSIDE VEP KO");
+				System.out.println("ROUTING VEP KO");
 
 				Thread.sleep(1000); 
 				
 				if((new Date().getTime())-currentDate>30000){
-					System.out.println("INSIDE VEP - TIMEOUT");
+					System.out.println("ROUTING VEP - TIMEOUT");
 					break;
 				}
 			}
 			else {
 				System.out.println("Transaction has been proccessed with result: OK"); 
-				System.out.println("INSIDE VEP OK");
+				System.out.println("ROUTING VEP OK");
 
 			}
 		}while(cont!=cont2);

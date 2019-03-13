@@ -1,4 +1,4 @@
-package BBDD_PREPROD;
+package BBDD_COLT;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
 
-public class bbdd_03_VIDEOVALIDATIONSTest {
+public class bbdd_07_TRIPBUILDINGTest {
 	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
@@ -44,6 +44,8 @@ public class bbdd_03_VIDEOVALIDATIONSTest {
 		this.driver = new FirefoxDriver();
 		this.driver.manage().window().maximize();
 		
+		
+		
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		driver.get("http://10.34.16.73:7201/war_texas-LBJ-1/login.jsf");
 		Thread.sleep(3000);
@@ -58,13 +60,20 @@ public class bbdd_03_VIDEOVALIDATIONSTest {
 			driver.findElement(By.id("j_password")).sendKeys("devI772020*");
 			Thread.sleep(5000);
 			driver.findElement(By.cssSelector("input.btn")).click();
+			
+			
 			Thread.sleep(5000);	
 			System.out.println("BOS Main page accessed successfully");
 	}
 
 	
-	@Given("^we access Task Maintenance to run VALIDATION MANAGER VIDEO VALIDATION$")
-	public void we_access_Task_Maintenance_to_run_VALIDATION_MANAGER_VIDEO_VALIDATION() throws Throwable {
+	@Given("^we access Task Maintenance to run TRIP BUILDING$")
+	public void we_access_Task_Maintenance_to_run_TRIP_BUILDING() throws Throwable {
+		Thread.sleep(5000);
+		WebElement html = driver.findElement(By.tagName("html"));
+		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
+		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
+		Thread.sleep(5000);
 	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id30"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
@@ -104,10 +113,10 @@ public class bbdd_03_VIDEOVALIDATIONSTest {
 
 	}
 	
-	@And ("^run VALIDATION MANAGER VIDEO VALIDATION$")
-	public void run_VALIDATION_MANAGER_VIDEO_VALIDATION() throws Throwable{
+	@Given("^run TRIP BUILDING$")
+	public void run_TRIP_BUILDING() throws Throwable{
 		
-		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("VIDEO VALIDATIONS");
+		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("TRIP BUILDING");
 		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
 		
 Thread.sleep(5000);
@@ -136,26 +145,26 @@ Thread.sleep(5000);
 	}
 	@And("^check \"([^\"]*)\" status$")
 	public void check_status(String arg1) throws Throwable{
-		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 60";//transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 40";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
 		do{
-			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted); 
 			if(cont!=cont2) {
 				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("VIDEO VALIDATIONS KO");
+				System.out.println("TRIP BUILDING KO");
 
 				Thread.sleep(1000); 
 				
 				if((new Date().getTime())-currentDate>30000){
-					System.out.println("VIDEO VALIDATIONS - TIMEOUT");
+					System.out.println("TRIP BUILDING - TIMEOUT");
 					break;
 				}
 			}
 			else {
 				System.out.println("Transaction has been proccessed with result: OK"); 
-				System.out.println("VIDEO VALIDATIONS OK");
+				System.out.println("TRIP BUILDING OK");
 
 			}
 		}while(cont!=cont2);
