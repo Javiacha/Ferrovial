@@ -24,5 +24,6 @@ public class Products_Page extends BasePage {
 		String voucherCodeValue = voucherCode.getText();
 		System.out.println("Voucher Code: " + voucherCode.getText());
 		return voucherCodeValue;
+		//esto debería estar sólo en colt
 	}
 }
