@@ -1,4 +1,4 @@
-package BBDD_PREPROD.bbdd_12_TRANSFERTRIPSTest;
+package BBDD_PREPROD;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
 
-public class bbdd_12_TRANSFERTRIPStest {
+public class bbdd_10_FEECALCULATIONTest {
 	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
@@ -67,8 +67,8 @@ public class bbdd_12_TRANSFERTRIPStest {
 	}
 
 	
-	@Given("^we access Task Maintenance to run TRANSFER TRIPS$")
-	public void we_access_Task_Maintenance_to_run_TRANSFER_TRIPS() throws Throwable {
+	@Given("^we access Task Maintenance to run FEE CALCULATION$")
+	public void we_access_Task_Maintenance_to_run_FEE_CALCULATION() throws Throwable {
 		Thread.sleep(5000);
 		WebElement html = driver.findElement(By.tagName("html"));
 		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
@@ -113,10 +113,10 @@ public class bbdd_12_TRANSFERTRIPStest {
 
 	}
 	
-	@Given("^run TRANSFER TRIPS$")
+	@Given("^run FEE CALCULATION$")
 	public void run_DISCOUNT_SURCHARGE() throws Throwable{
 		
-		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("TRANSFER TRIPS");
+		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("FEE CALCULATION");
 		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
 		
 Thread.sleep(5000);
@@ -145,7 +145,7 @@ Thread.sleep(5000);
 	}
 	@And("^check \"([^\"]*)\" status$")
 	public void check_status(String arg1) throws Throwable{
-		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 52";//transacción número proporcionado
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 51";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
@@ -153,18 +153,18 @@ Thread.sleep(5000);
 			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted); 
 			if(cont!=cont2) {
 				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("TRANSFER TRIPS KO"); 
+				System.out.println("FEE CALCULATION KO"); 
 
 				Thread.sleep(1000); 
 				
 				if((new Date().getTime())-currentDate>30000){
-					System.out.println("TRANSFER TRIPS - TIMEOUT");
+					System.out.println("FEE CALCULATION - TIMEOUT");
 					break;
 				}
 			}
 			else {
 				System.out.println("Transaction has been proccessed with result: OK"); 
-				System.out.println("TRANSFER TRIPS OK");
+				System.out.println("FEE CALCULATION OK");
 
 			}
 		}while(cont!=cont2);
