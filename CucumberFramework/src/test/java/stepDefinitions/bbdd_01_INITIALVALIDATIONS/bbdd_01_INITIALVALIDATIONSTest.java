@@ -21,7 +21,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
-
+ 
 public class bbdd_01_INITIALVALIDATIONSTest {
 	
 	WebDriver driver;
