@@ -1,4 +1,4 @@
-package stepDefinitions.bbdd_06_FINALVALIDATIONSTest;
+package BBDDFERROVIAL;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,13 +22,13 @@ import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
 
-public class bbdd_06_FINALTRANSACTIONSTest {
+public class TestingStepsTest {
 	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
 
 	@Before()
-	public void setup() throws Throwable {
+	public void setup() throws Throwable {   
 		boolean isDebug = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().indexOf("-agentlib:jdwp") > 0;
 		try {
 		    if (isDebug)
@@ -45,7 +45,7 @@ public class bbdd_06_FINALTRANSACTIONSTest {
 		this.driver.manage().window().maximize();
 		
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
-		driver.get("http://10.101.138.58:7001/war_texas-LBJ-1/login.jsf");
+		driver.get("http://10.34.16.73:7201/war_texas-LBJ-1/login.jsf");
 		Thread.sleep(3000);
 		driver.close();
 		for(String winHandle : driver.getWindowHandles()){ 
@@ -63,9 +63,16 @@ public class bbdd_06_FINALTRANSACTIONSTest {
 	}
 
 	
-	@Given("^we access Task Maintenance to run FINAL VALIDATIONS$")
-	public void we_access_Task_Maintenance_to_run_FINAL_VALIDATIONS() throws Throwable {
-	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id33"));
+	@Given("^we access Task Maintenance to run \"([^\"]*)\"$")
+	public void we_access_Task_Maintenance_to_run(String jobName) throws Throwable {
+		Thread.sleep(3000);
+		System.out.println("Accessing Task Maintenance to launch task: " + jobName);
+		Thread.sleep(10000);
+		WebElement html = driver.findElement(By.tagName("html"));
+		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
+		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
+		Thread.sleep(5000);
+	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id30"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
 		Thread.sleep(2000);
@@ -104,10 +111,10 @@ public class bbdd_06_FINALTRANSACTIONSTest {
 
 	}
 	
-	@Given("^run FINAL VALIDATIONS$")
-	public void run_FINAL_VALIDATIONS() throws Throwable{
+	@Given("^run \"([^\"]*)\"$")
+	public void run(String jobName) throws Throwable {
 		
-		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("FINAL VALIDATIONS");
+		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys(jobName);
 		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
 		
 Thread.sleep(5000);
@@ -135,8 +142,11 @@ Thread.sleep(5000);
 		//
 	}
 	@And("^check \"([^\"]*)\" status$")
-	public void check_status(String arg1) throws Throwable{
-		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 150";//transacción número proporcionado
+	public void check_status(int StatusNumber) throws Throwable{
+		///////////////////////////////////////////////////////////////////////////////////////////////
+		//DENTRO DE LA CONSULTA DEBEMOS CAMBIAR LOS NÚMEROS DENTRO DE LOS SEGUNDOS PARENTESIS POR EL DE LAS TRANSACCIONES QUE NECESITAMOS
+		///////////////////////////////////////////////////////////////////////////////////////////////
+		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = StatusNumber";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
@@ -144,26 +154,31 @@ Thread.sleep(5000);
 			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
 				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("FINAL VALIDATIONS KO");
+				System.out.println("Requested Job KO");
 
 				Thread.sleep(1000); 
 				
 				if((new Date().getTime())-currentDate>30000){
-					System.out.println("FINAL VALIDATIONS - TIMEOUT");
+					System.out.println("Requested Job - TIMEOUT");
 					break;
 				}
 			}
 			else {
 				System.out.println("Transaction has been proccessed with result: OK"); 
-				System.out.println("FINAL VALIDATIONS OK");
+				System.out.println("Requested Job OK");
 
 			}
 		}while(cont!=cont2);
 		
 		List<String> ids = new ArrayList<String>();
+		
+		///////////////////////////////////////////////////////////////////////////
+		//AQUÍ APARECEN LAS TRANSACCIONES QUE DEBEMOS AÑADIR O CAMBIAR. SÓLO DEBEMOS
+		//CAMBIAR LOS NÚMEROS ENTEROS DISPUESTOS ENTRE COMILLAS
+		///////////////////////////////////////////////////////////////////////////
 		ids.add("18"); 
 		ids.add("150");
-		
+		///////////////////////////////////////////////////////////////////////////
 		List<String> showTransactions = DatabaseConnector.getTransactionValuesInDatabase(ids);
 		for (String showTransaction : showTransactions) {
 			System.out.println(String.join(",", showTransaction));			
@@ -196,4 +211,7 @@ Thread.sleep(5000);
 }
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 

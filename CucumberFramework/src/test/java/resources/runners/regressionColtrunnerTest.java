@@ -18,7 +18,7 @@ glue = {"src/test/java/BBDDFERROVIAL/TestingStepsTest.java"}, monochrome = true,
 				plugin = { "pretty", "html:target/cucumber", "json:target/cucumber.json",
 				"com.cucumber.listener.ExtentCucumberFormatter:output/report.html" })
 
-public class regressionColtrunner extends AbstractTestNGCucumberTests {
+public class regressionColtrunnerTest extends AbstractTestNGCucumberTests {
 	@AfterClass
 	public static void writeExtentReport() throws IOException {
 		Reporter.loadXMLConfig(new File(System.getProperty("user.dir") + "\\src\\main\\java\\utils\\ReportsConfig.xml"));

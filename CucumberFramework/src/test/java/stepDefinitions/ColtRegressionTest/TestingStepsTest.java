@@ -1,4 +1,4 @@
-package stepDefinitions.bbdd_07_TRIPBUILDINGTest;
+package stepDefinitions.ColtRegressionTest;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import cucumber.api.java.en.Then;
 import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
 
-public class bbdd_07_TRIPBUILDINGTest {
+public class TestingStepsTest {
 	
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
@@ -44,8 +44,6 @@ public class bbdd_07_TRIPBUILDINGTest {
 		this.driver = new FirefoxDriver();
 		this.driver.manage().window().maximize();
 		
-		
-		
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		driver.get("http://10.101.138.58:7001/war_texas-LBJ-1/login.jsf");
 		Thread.sleep(3000);
@@ -60,16 +58,16 @@ public class bbdd_07_TRIPBUILDINGTest {
 			driver.findElement(By.id("j_password")).sendKeys("devI772020*");
 			Thread.sleep(5000);
 			driver.findElement(By.cssSelector("input.btn")).click();
-			
-			
 			Thread.sleep(5000);	
 			System.out.println("BOS Main page accessed successfully");
 	}
 
 	
-	@Given("^we access Task Maintenance to run TRIP BUILDING$")
-	public void we_access_Task_Maintenance_to_run_TRIP_BUILDING() throws Throwable {
-		Thread.sleep(5000);
+	@Given("^we access Task Maintenance to run \"([^\"]*)\"$")
+	public void we_access_Task_Maintenance_to_run(String jobName) throws Throwable {
+		Thread.sleep(3000);
+		System.out.println("Accessing Task Maintenance to launch task: " + jobName);
+		Thread.sleep(10000);
 		WebElement html = driver.findElement(By.tagName("html"));
 		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
 		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
@@ -113,10 +111,10 @@ public class bbdd_07_TRIPBUILDINGTest {
 
 	}
 	
-	@Given("^run TRIP BUILDING$")
-	public void run_TRIP_BUILDING() throws Throwable{
+	@Given("^run \"([^\"]*)\"$")
+	public void run(String jobName) throws Throwable {
 		
-		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys("TRIP BUILDING");
+		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys(jobName);
 		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
 		
 Thread.sleep(5000);
@@ -144,35 +142,44 @@ Thread.sleep(5000);
 		//
 	}
 	@And("^check \"([^\"]*)\" status$")
-	public void check_status(String arg1) throws Throwable{
-		String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = 40";//transacción número proporcionado
+	public void check_status(int StatusNumber) throws Throwable{
+		System.out.println(StatusNumber);
+		///////////////////////////////////////////////////////////////////////////////////////////////
+		//DENTRO DE LA CONSULTA DEBEMOS CAMBIAR LOS NÚMEROS DENTRO DE LOS SEGUNDOS PARENTESIS POR EL DE LAS TRANSACCIONES QUE NECESITAMOS
+		///////////////////////////////////////////////////////////////////////////////////////////////
+		/* String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = StatusNumber";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
 		do{
-			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted); 
+			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
 				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("TRIP BUILDING KO");
+				System.out.println("Requested Job KO");
 
 				Thread.sleep(1000); 
 				
 				if((new Date().getTime())-currentDate>30000){
-					System.out.println("TRIP BUILDING - TIMEOUT");
+					System.out.println("Requested Job - TIMEOUT");
 					break;
 				}
 			}
 			else {
 				System.out.println("Transaction has been proccessed with result: OK"); 
-				System.out.println("TRIP BUILDING OK");
+				System.out.println("Requested Job OK");
 
 			}
-		}while(cont!=cont2);
+		}while(cont!=cont2); */
 		
 		List<String> ids = new ArrayList<String>();
+		
+		///////////////////////////////////////////////////////////////////////////
+		//AQUÍ APARECEN LAS TRANSACCIONES QUE DEBEMOS AÑADIR O CAMBIAR. SÓLO DEBEMOS
+		//CAMBIAR LOS NÚMEROS ENTEROS DISPUESTOS ENTRE COMILLAS
+		///////////////////////////////////////////////////////////////////////////
 		ids.add("18"); 
 		ids.add("150");
-		
+		///////////////////////////////////////////////////////////////////////////
 		List<String> showTransactions = DatabaseConnector.getTransactionValuesInDatabase(ids);
 		for (String showTransaction : showTransactions) {
 			System.out.println(String.join(",", showTransaction));			
@@ -205,4 +212,7 @@ Thread.sleep(5000);
 }
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
