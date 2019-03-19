@@ -23,7 +23,7 @@ import utils.DatabaseConnector;
 import org.openqa.selenium.support.ui.*;
 
 public class TestingStepsTest {
-	
+	 
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
 
@@ -67,24 +67,30 @@ public class TestingStepsTest {
 	public void we_access_Task_Maintenance_to_run(String jobName) throws Throwable {
 		Thread.sleep(3000);
 		System.out.println("Accessing Task Maintenance to launch task: " + jobName);
-		Thread.sleep(10000);
-		WebElement html = driver.findElement(By.tagName("html"));
-		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
-		html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
 		Thread.sleep(5000);
+		
 	 WebElement web_Element_To_Be_Hovered = driver.findElement(By.id("verticalMenu:formularioMenuAplication:j_id33"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(web_Element_To_Be_Hovered).click();
 		Thread.sleep(2000);
 		builder.moveToElement(web_Element_To_Be_Hovered).perform();
 		Thread.sleep(2000);
-		WebElement objetivo = driver.findElement(By.xpath("//span[contains(text(),'Task Maintenance')]"));
+		
+		web_Element_To_Be_Hovered.sendKeys(Keys.ARROW_DOWN);
 		Thread.sleep(2000);
-		builder.moveToElement(objetivo);
+		web_Element_To_Be_Hovered.sendKeys(Keys.ARROW_DOWN);
 		Thread.sleep(2000);
-		builder.click();
-		Thread.sleep(2000);
-		builder.perform();   
+		web_Element_To_Be_Hovered.sendKeys(Keys.ENTER);
+		
+		
+		Thread.sleep(10000);
+		//WebElement objetivo = driver.findElement(By.xpath("//span[text()=\"Task Maintenance\"]")); //driver.findElement(By.xpath("//span[text()=\"Task Maintenance\"]"))
+		
+		//builder.moveToElement(objetivo);
+		
+		//builder.click();
+		
+		//builder.perform();   
 		
 		Thread.sleep(3000);
 		System.out.println("Task Maintenance page accessed successfully");
@@ -112,12 +118,12 @@ public class TestingStepsTest {
 	}
 	
 	@Given("^run \"([^\"]*)\"$")
-	public void run(String jobName) throws Throwable {
+	public void run(String jobName) throws Throwable  {
 		
 		driver.findElement(By.id("body:taskMaintenanceForm:maneFilter")).sendKeys(jobName);
 		driver.findElement(By.id("body:taskMaintenanceForm:searchButton")).click();
 		
-Thread.sleep(5000);
+Thread.sleep(10000);
 		
 		WebElement horizontal_scroll = driver.findElement(By.xpath("//input[@id='body:taskMaintenanceForm:taskTable:0:updateTaskButton']")); ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", horizontal_scroll);
 		Thread.sleep(5000);
@@ -127,7 +133,9 @@ Thread.sleep(5000);
 			
 			System.out.println("The task was already selected, we will stop it and run again");
 			checkboxtask.click();
+			Thread.sleep(5000);
 			driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
+			Thread.sleep(5000);
 			driver.findElement(By.className("ui-state-focus")).click();
 
 		}
@@ -137,7 +145,7 @@ Thread.sleep(5000);
 			driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
 			driver.findElement(By.className("ui-state-focus")).click();
 
-		}
+		} 
 		Thread.sleep(6000);
 		//
 	}
@@ -147,15 +155,15 @@ Thread.sleep(5000);
 		///////////////////////////////////////////////////////////////////////////////////////////////
 		//DENTRO DE LA CONSULTA DEBEMOS CAMBIAR LOS NÚMEROS DENTRO DE LOS SEGUNDOS PARENTESIS POR EL DE LAS TRANSACCIONES QUE NECESITAMOS
 		///////////////////////////////////////////////////////////////////////////////////////////////
-		/* String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150) and medtr_trnst_fk = StatusNumber";//transacción número proporcionado
+		 String processExecuted = "SELECT count(1) FROM med_bos_transactions where medtr_oid in (18,150)";// and medtr_trnst_fk = \\\StatusNumber\\";//transacción número proporcionado
 		Long cont = 2L;
 		Long cont2 = 0L;
 		Long currentDate = new Date().getTime();
 		do{
 			cont2 = DatabaseConnector.checkResultInDatabase(processExecuted);
 			if(cont!=cont2) {
-				System.out.println("Transaction has been proccessed with result: KO");
-				System.out.println("Requested Job KO");
+				System.out.println("Transaction has been proccessed");
+			
 
 				Thread.sleep(1000); 
 				
@@ -165,11 +173,11 @@ Thread.sleep(5000);
 				}
 			}
 			else {
-				System.out.println("Transaction has been proccessed with result: OK"); 
-				System.out.println("Requested Job OK");
+				System.out.println("Transaction has been proccessed"); 
+			
 
 			}
-		}while(cont!=cont2); */
+		}while(cont!=cont2); 
 		
 		List<String> ids = new ArrayList<String>();
 		
