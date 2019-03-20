@@ -137,12 +137,15 @@ Thread.sleep(10000);
 			driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.className("ui-state-focus")).click();
+			Thread.sleep(5000);
 
 		}
 		else {
 			checkboxtask.click();
 			System.out.println("The task has been selected correctly");
+			Thread.sleep(5000);
 			driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
+			Thread.sleep(5000);
 			driver.findElement(By.className("ui-state-focus")).click();
 
 		} 
