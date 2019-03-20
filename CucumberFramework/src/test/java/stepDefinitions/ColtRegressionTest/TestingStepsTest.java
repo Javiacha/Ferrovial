@@ -137,7 +137,7 @@ Thread.sleep(10000);
 			driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.className("ui-state-focus")).click();
-			Thread.sleep(5000);
+			Thread.sleep(25000);
 
 		}
 		else {
@@ -147,6 +147,7 @@ Thread.sleep(10000);
 			driver.findElement(By.id("body:taskMaintenanceForm:taskTable:0:updateTaskButton")).click();
 			Thread.sleep(5000);
 			driver.findElement(By.className("ui-state-focus")).click();
+			Thread.sleep(25000);
 
 		} 
 		Thread.sleep(6000);
