@@ -111,7 +111,6 @@ public class TestingStepsTest {
 		driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).click();
 			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ARROW_DOWN);
 			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ARROW_DOWN);
-			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ARROW_DOWN);
 
 			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ENTER);
 

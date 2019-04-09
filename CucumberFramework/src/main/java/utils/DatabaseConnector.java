@@ -21,8 +21,8 @@ public class DatabaseConnector {
 	private final static String DATABASE_SCHEMA = "DEVI77";
 	private final static String DATABASE_IP = "10.101.138.58";
 	private final static String DATABASE_PORT = "1521";
-	private final static String DATABASE_USER = "NTE35W";
-	private final static String DATABASE_PASS = "NTE35W";
+	private final static String DATABASE_USER = "NTE";
+	private final static String DATABASE_PASS = "NTE";
 	private final static String DATABASE_URL = "jdbc:oracle:thin:@" + DATABASE_IP + ":" + DATABASE_PORT + ":" + DATABASE_SCHEMA;
 	
 	public static Long checkResultInDatabase(String query) {
