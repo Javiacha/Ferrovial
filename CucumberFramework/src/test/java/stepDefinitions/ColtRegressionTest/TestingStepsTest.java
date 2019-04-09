@@ -34,7 +34,7 @@ public class TestingStepsTest {
 		    if (isDebug)
 		        Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe"); 
 		} catch (IOException e) {
-		    e.printStackTrace(); 
+		    e.printStackTrace();   
 		}
 		//the following can be changed to: System.getProperty("user.dir") + "\\src\\test\\java\\resources\\other\\geckodriver.exe";
 		
@@ -110,9 +110,7 @@ public class TestingStepsTest {
 
 		driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).click();
 			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ARROW_DOWN);
-			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ARROW_DOWN);
-			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ARROW_DOWN);
-
+		
 			driver.findElement(By.name("header:formHeaderApplication:changeConcesionaryComboBox")).sendKeys(Keys.ENTER);
 
 		Thread.sleep(20000); 
