@@ -54,7 +54,7 @@ public class TestingStepsTest {
 		    
 		}
 		
-		//Comentarios
+		//Comentarios 
 		    Thread.sleep(6000);
 			driver.findElement(By.id("j_username")).sendKeys("ADMIN");
 			driver.findElement(By.id("j_password")).sendKeys("devI772020*");

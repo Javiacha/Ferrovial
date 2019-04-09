@@ -4,7 +4,7 @@
 
 
 <head>
-	<meta charset='UTF-8' /> 
+	<meta charset='utf-8' /> 
 	<meta name='description' content='' />
 	<meta name='robots' content='noodp, noydir' />
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -15,14 +15,9 @@
 
 		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
 	
-	<title>W2A Automation Reports</title>
+	<title>ExtentReports</title>
 
 	<style type='text/css'>
-			
-            
-                
-            
-        
 	</style>
 </head>
 
@@ -38,12 +33,11 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
-			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
-		<span class='report-name'>Automation Report for</span>
+		<span class='report-name'>ExtentReports</span>
 		
 		<!-- report headline -->
 		<span class='report-headline'></span>
@@ -52,7 +46,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Mar 20, 2019 01:52:49 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Apr 8, 2019 11:07:44 AM</span>
 				</a>
 			</li>
 			<li>
@@ -78,8 +72,6 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
-						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
-						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -130,10 +122,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='91.667%'><span class='strong'>11</span> feature(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='8.333%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -145,10 +137,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='91.667%'><span class='strong'>11</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='8.333%'>1</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -160,10 +152,10 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='95%'><span class='strong'>57</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='1.667%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='3.333%'>2</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -179,23 +171,23 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>bbdd_01_INITIALVALIDATIONS</span>
-						<span class='test-time'>Mar 20, 2019 01:52:49 PM</span>
+						<span class='test-name'>tsm checkrate</span>
+						<span class='test-time'>Apr 8, 2019 11:07:44 AM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenario node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 2m 29s+533ms</span>
+	<span class='duration right label'>0h 22m 28s+496ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
-		<span class="desc-text">bbdd_01_INITIALVALIDATIONS</span>
+		<span class="desc-text">tsm checkrate</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node given pass' status='pass'>
 			
 			<b>Given</b>
 			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "INITIAL VALIDATION"</span>
+			<span class="bdd-step-name">Given Access Check Rates</span>
 				<div class='pre'>passed</div>
 			
 		</li>
@@ -203,715 +195,15 @@
 			
 			<b>And</b>
 			
-			<span class="bdd-step-name">And select database schema</span>
+			<span class="bdd-step-name">And perform searchs</span>
 				<div class='pre'>passed</div>
 			
 		</li>
-		<li test-id='5' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "INITIAL VALIDATION"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='6' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "300" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='7' class='node then pass' status='pass'>
+		<li test-id='5' class='node then pass' status='pass'>
 			
 			<b>Then</b>
 			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='8'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_02_TAGVALIDATIONS</span>
-						<span class='test-time'>Mar 20, 2019 01:55:21 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='9' status='pass'>
-	<span class='duration right label'>0h 2m 26s+572ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_02_TAGVALIDATIONS</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='10' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "TAG VALIDATION"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='11' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='12' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "TAG VALIDATION"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='13' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "301" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='14' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='15'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_03_VIDEOVALIDATIONS</span>
-						<span class='test-time'>Mar 20, 2019 01:57:50 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='16' status='pass'>
-	<span class='duration right label'>0h 2m 26s+789ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_03_VIDEOVALIDATIONS</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='17' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "VIDEO VALIDATION"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='18' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='19' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "VIDEO VALIDATION"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='20' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "60" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='21' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='22'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_04_ROUTETOVEP</span>
-						<span class='test-time'>Mar 20, 2019 02:00:19 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='23' status='pass'>
-	<span class='duration right label'>0h 2m 26s+862ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_04_ROUTETOVEP</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='24' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "ROUTING TO VEP"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='25' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='26' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "ROUTING TO VEP"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='27' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "15" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='28' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='29'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_05_INSIDEVEP</span>
-						<span class='test-time'>Mar 20, 2019 02:02:48 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='30' status='pass'>
-	<span class='duration right label'>0h 2m 27s+30ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_05_INSIDEVEP</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='31' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "INSIDE VEP"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='32' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='33' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "INSIDE VEP"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='34' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "20" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='35' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='36'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_06_FINALVALIDATIONS</span>
-						<span class='test-time'>Mar 20, 2019 02:05:18 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='37' status='pass'>
-	<span class='duration right label'>0h 2m 27s+137ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_06_FINALVALIDATIONS</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='38' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "FINAL VALIDATIONS"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='39' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='40' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "FINAL VALIDATIONS"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='41' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "150" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='42' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='43'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_07_TRIPBUILDING</span>
-						<span class='test-time'>Mar 20, 2019 02:07:47 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='44' status='pass'>
-	<span class='duration right label'>0h 2m 27s+319ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_07_TRIPBUILDING</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='45' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "TRIP BUILDING"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='46' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='47' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "TRIP BUILDING"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='48' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "40" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='49' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='50'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_08_TOLLRATE</span>
-						<span class='test-time'>Mar 20, 2019 02:10:17 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='51' status='pass'>
-	<span class='duration right label'>0h 2m 27s+151ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_08_TOLLRATE</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='52' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "TOLL RATE"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='53' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='54' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "TOLL RATE AND EXEMPTS"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='55' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "45" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='56' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='57'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_09_DISCOUNTANDSURCHARGE</span>
-						<span class='test-time'>Mar 20, 2019 02:12:46 PM</span>
-						<span class='test-status right fail'>fail</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='58' status='fail'>
-	<span class='duration right label'>0h 1m 34s+391ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_09_DISCOUNTANDSURCHARGE</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='59' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "DISCOUNT SURCHARGE"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='60' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='61' class='node and fail' status='fail'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "DISCOUNT SURCHARGE"</span>
-				<div class='pre'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //input[@id='body:taskMaintenanceForm:taskTable:0:updateTaskButton']
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 8860, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: cb519847-a27d-4f5d-b232-301a6a9af8ad
-*** Element info: {Using=xpath, value=//input[@id='body:taskMaintenanceForm:taskTable:0:updateTaskButton']}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.ColtRegressionTest.TestingStepsTest.run(TestingStepsTest.java:128)
-	at ?.And run "DISCOUNT SURCHARGE"(src/test/java/resources/features/bbdd_09_DISCOUNTSURCHARGE.feature:5)
-</pre></div>
-			
-		</li>
-		<li test-id='62' class='node and skip' status='skip'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "50" status</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-		<li test-id='63' class='node then skip' status='skip'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>skipped</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='64'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_10_FEECALCULATION</span>
-						<span class='test-time'>Mar 20, 2019 02:14:24 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='65' status='pass'>
-	<span class='duration right label'>0h 2m 27s+994ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_10_FEECALCULATION</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='66' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "FEE CALCULATION"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='67' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='68' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "FEE CALCULATION"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='69' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "51" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='70' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='71'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_11_TRANSFERIMAGES</span>
-						<span class='test-time'>Mar 20, 2019 02:16:54 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='72' status='pass'>
-	<span class='duration right label'>0h 2m 26s+685ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_11_TRANSFERIMAGES</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='73' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "TRANSFER IMAGES"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='74' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='75' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "TRANSFER IMAGES"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='76' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "51" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='77' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-	</ul>
-</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='78'>
-					<div class='test-heading'>
-						<span class='test-name'>bbdd_12_TRANSFERTRIPS</span>
-						<span class='test-time'>Mar 20, 2019 02:19:23 PM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='scenario node' test-id='79' status='pass'>
-	<span class='duration right label'>0h 2m 26s+847ms</span>
-	<div class='desc'>
-		<b>Scenario</b>
-		<span class="desc-text">bbdd_12_TRANSFERTRIPS</span>
-	</div>
-	<ul class='steps'>
-		<li test-id='80' class='node given pass' status='pass'>
-			
-			<b>Given</b>
-			
-			<span class="bdd-step-name">Given we access Task Maintenance to run "TRANSFER TRIPS"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='81' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And select database schema</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='82' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And run "TRANSFER TRIPS"</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='83' class='node and pass' status='pass'>
-			
-			<b>And</b>
-			
-			<span class="bdd-step-name">And check "52" status</span>
-				<div class='pre'>passed</div>
-			
-		</li>
-		<li test-id='84' class='node then pass' status='pass'>
-			
-			<b>Then</b>
-			
-			<span class="bdd-step-name">Then test case is successful</span>
+			<span class="bdd-step-name">Then test is successful</span>
 				<div class='pre'>passed</div>
 			
 		</li>
@@ -945,91 +237,6 @@ Session ID: cb519847-a27d-4f5d-b232-301a6a9af8ad
 </div>
 <!-- test view -->
 <!-- category view -->
-<div id='exception-view' class='view hide'>
-
-    <section id='controls'>
-        <div class='controls grey lighten-4'>
-            <!-- search -->
-            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
-                <a href="#" class='search-div'>
-                    <i class='material-icons'>search</i> Search
-                </a>
-
-                <div class='input-field left hide'>
-                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
-                </div>
-
-            </div>
-            <!-- search -->
-        </div>
-    </section>
-
-    <div class='subview-left left'>
-
-        <div class='view-summary'>
-            <h5>Exceptions</h3>
-                <ul id='exception-collection' class='exception-collection'>
-
-                        <li class='exception displayed active'>
-                            <div class='exception-heading'>
-                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
-                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
-                            </div>
-                            <div class='exception-content hide'>
-                                <div class='exception-tests'>
-                                    <table class='bordered table-results'>
-                                        <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>TestName</th>
-                                            <th>Status</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                                    <tr>
-                                                        <td>Mar 20, 2019 02:14:10 PM</td>
-                                                        <td class='linked' test-id='61'>bbdd_09_DISCOUNTANDSURCHARGE.bbdd_09_DISCOUNTANDSURCHARGE.And run "DISCOUNT SURCHARGE"</td>
-                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: //input[@id='body:taskMaintenanceForm:taskTable:0:updateTaskButton']
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ES-L001992', ip: '10.121.108.44', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_191'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 55.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:processID: 8860, moz:profile: C:\Users\FRANCI~1.ACH\AppDa..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: cb519847-a27d-4f5d-b232-301a6a9af8ad
-*** Element info: {Using=xpath, value=//input[@id='body:taskMaintenanceForm:taskTable:0:updateTaskButton']}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at stepDefinitions.ColtRegressionTest.TestingStepsTest.run(TestingStepsTest.java:128)
-	at ?.And run "DISCOUNT SURCHARGE"(src/test/java/resources/features/bbdd_09_DISCOUNTSURCHARGE.feature:5)
-</pre></pre></td>
-                                                    </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </li>
-                </ul>
-        </div>
-    </div>
-
-    <div class='subview-right left'>
-        <div class='view-summary'>
-            <h5 class='exception-name'></h5>
-        </div>
-    </div>
-</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -1039,37 +246,37 @@ Session ID: cb519847-a27d-4f5d-b232-301a6a9af8ad
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Features
-					<div class='panel-lead'>12</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>12</div>
+					<div class='panel-lead'>1</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>60</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Mar 20, 2019 01:52:49 PM</div>
+					<div class='panel-lead'>Apr 8, 2019 11:07:44 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Mar 20, 2019 02:21:53 PM</div>
+			 		<div class='panel-lead'>Apr 8, 2019 11:30:15 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>1,744,601ms</div>
+					<div class='panel-lead'>1,351,405ms</div>
 				</div>
 			</div>
 		</div>
@@ -1082,31 +289,31 @@ Session ID: cb519847-a27d-4f5d-b232-301a6a9af8ad
 
 		<script>
 			var statusGroup = {
-				passParent: 11,
-				failParent: 1,
+				passParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 1,
+				exceptionsParent: 0,
 				
-				passChild: 11,
-				failChild: 1,
+				passChild: 1,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 1,
+				exceptionsChild: 0,
 				
-				passGrandChild: 57,
-				failGrandChild: 1,
+				passGrandChild: 3,
+				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 2,
+				skipGrandChild: 0,
 				infoGrandChild: 0,
-				exceptionsGrandChild: 3,
+				exceptionsGrandChild: 0,
 			};
 		</script>
 		
@@ -1114,13 +321,6 @@ Session ID: cb519847-a27d-4f5d-b232-301a6a9af8ad
 		
 		
  		<script type='text/javascript'>
- 			
-            
-                $(document).ready(function() {
-                    
-                });
-            
-        
  		</script>
 	</body>
 	
