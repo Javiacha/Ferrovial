@@ -51,6 +51,11 @@
     <artifactId>selenium-java</artifactId>
     <version>3.141.59</version>
 </dependency>
+<dependency>
+        <groupId>com.oracle</groupId>
+        <artifactId>ojdbc6</artifactId>
+        <version>11.1.0.7.0</version>
+    </dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -70,8 +75,6 @@
 			<version>1.2.5</version>
 			<scope>test</scope>
 		</dependency>
-
-
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-core -->
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -146,6 +149,7 @@
 			<artifactId>freemarker</artifactId>
 			<version>2.3.26-incubating</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/ojdbc/ojdbc -->
 		<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
 		<dependency>
 			<groupId>net.masterthought</groupId>
