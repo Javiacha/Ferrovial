@@ -27,7 +27,7 @@ public class TestingStepsTest {
 	WebDriver driver;
 	String query = "select count(1) from med_bos_transactions where medtr_oid between 1 and 100000 order by medtr_oid desc";
 
-	@Before()
+	@Before() 
 	public void setup() throws Throwable {
 		boolean isDebug = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().indexOf("-agentlib:jdwp") > 0;
 		try {
@@ -38,7 +38,7 @@ public class TestingStepsTest {
 		}
 		//the following can be changed to: System.getProperty("user.dir") + "\\src\\test\\java\\resources\\other\\geckodriver.exe";
 		
-		System.setProperty("webdriver.gecko.driver","C:\\Program Files\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver","C:\\Users\\victor.garciacarrero\\Desktop\\geckodriver.exe");
 		System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"C:\\temp\\logs.txt");
 		this.driver = new FirefoxDriver();
