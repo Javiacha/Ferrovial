@@ -51,11 +51,7 @@
     <artifactId>selenium-java</artifactId>
     <version>3.141.59</version>
 </dependency>
-<dependency>
-        <groupId>com.oracle</groupId>
-        <artifactId>ojdbc6</artifactId>
-        <version>11.1.0.7.0</version>
-    </dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>
