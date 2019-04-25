@@ -191,6 +191,7 @@ Thread.sleep(10000);
 		///////////////////////////////////////////////////////////////////////////
 		ids.add("18"); 
 		ids.add("150");
+		System.out.println("Code written by Javier Acha");
 		///////////////////////////////////////////////////////////////////////////
 		List<String> showTransactions = DatabaseConnector.getTransactionValuesInDatabase(ids);
 		for (String showTransaction : showTransactions) {
