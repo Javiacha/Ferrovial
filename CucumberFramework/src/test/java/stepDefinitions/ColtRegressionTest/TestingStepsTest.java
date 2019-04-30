@@ -45,6 +45,7 @@ public class TestingStepsTest {
 		this.driver.manage().window().maximize();
 		
 		this.driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		//Si algún día te cambian la web, pon la nueva aquí debajo:
 		driver.get("http://10.101.138.58:7001/war_texas-LBJ-1/login.jsf");
 		Thread.sleep(3000);
 		driver.close();
